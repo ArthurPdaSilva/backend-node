@@ -10,6 +10,7 @@ export default class App {
         this.app = express();
         this.configApp();
         this.configRoutes();
+        this.configDocumentation();
     }
 
     private configApp():void {
@@ -25,7 +26,12 @@ export default class App {
         this.app.use("/about-me", aboutMeRoutes.getRoutes());
     }
 
+    public configDocumentation(): void {
+        this.app.use(express.static("documentation"));
+    }
+
     public getApp(): Express {
         return this.app;
     }
+
 }
