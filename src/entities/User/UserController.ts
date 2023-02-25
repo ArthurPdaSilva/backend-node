@@ -120,4 +120,26 @@ export default class UserController {
         }
     }
 
+    public async login(request: Request, response:Response):Promise<Response> {
+
+        try {
+            const desirableParameters = ["email", "password"];
+            ParamtersValidationComponent.allParamtersRequired(request.body, desirableParameters);
+
+            const { email, password } = request.body;
+
+            const result = await service.login(password, email);
+            if(result) {
+                logger.info("/user/login. login method response sucessfuly", {email});
+                return response.status(202).json(result); 
+            }
+
+            logger.warn("/user/login. login method response unsucessfuly", {email});
+            return response.status(401).json("Dados incorretos");
+        } catch (error) {
+            logger.error("/user/login. login method response unsucessfuly", error.message);
+            return response.status(400).json(error.message);
+        }
+    }
+
 }
