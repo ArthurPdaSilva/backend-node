@@ -1,9 +1,10 @@
 import RepositoryTemplate from "../../templates/RepositoryTemplate";
 import AboutMeModel from "./AboutMeModel";
 
-export default class AboutMeModelRepository extends RepositoryTemplate {
+export default class AboutMeRepository extends RepositoryTemplate{
 
-    constructor() {
-        super(AboutMeModel);
+    constructor(){
+
+        super( AboutMeModel );
     }
 }

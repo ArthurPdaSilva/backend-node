@@ -1,36 +1,34 @@
 import mongoose from "mongoose";
-import { v4 } from "uuid";
 
 const schema = new mongoose.Schema({
-    _id: {
+    _id:{
         type: String,
-        require: true,
-        default: v4()
+        require: true
     },
-    userUuid: {
+    description:{
+        type: String,
+        require: true
+    },
+    userUuid:{
         type: String,
         require: true,
         unique: true,
         ref: "User"
     },
-    description: {
+    academicDescription:{
         type: String,
-        require: true,
+        require: true
     },
-    academicDescription: {
+    projects:[{
         type: String,
-        require: true,
-    },
-    projects: [{
-        type: String,
-        require: true,
+        require: true
     }],
-    curiosities: [{
+    curiosities:[{
         type: String,
-        require: true,
-    }],
+        require: true
+    }]
 });
 
-const AboutMeModel = mongoose.model("About", schema);
+const AboutMeModel = mongoose.model("About",schema);
 
 export default AboutMeModel;

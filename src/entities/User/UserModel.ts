@@ -1,28 +1,28 @@
-import mongoose from "mongoose";
-import { v4 } from "uuid";
+import mongoose, { mongo } from "mongoose";
 
 const schema = new mongoose.Schema({
-    _id: {
+    _id:{
         type: String,
-        require: true,
-        default: v4()
+        require: true
     },
-    name: {
-        type: String,
-        require: true,
-    },
-    email: {
+    name:{
         type: String,
         require: true,
     },
-    password: {
+    email:{
+        type: String,
+        require: true,
+        unique: true
+    },
+    password:{
         type: String,
         require: true,
     },
-    rules: [{
+    rules:[{
         type: String,
         require: true,
-    }],
+    }]
+
 });
 
 const UserModel = mongoose.model("User", schema);

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import User from "../../types/User";
 import UserRepository from "./UserRepository";
 
@@ -49,6 +48,7 @@ export default class UserService {
 
     public async updateName(uuid: string, newName: string): Promise<User> {
         const user: User = await this.findByUuid(uuid);
+
         if(user) {
             user.name = newName;
             return await this.repository.update(user);
