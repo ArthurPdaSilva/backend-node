@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "incremental": true,
+    "target": "ES2020",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "strictPropertyInitialization": false,
+    "typeRoots": ["./node_modules/@types",  "../node_modules/@types"],
+    "types": ["node", "jest"],
+    "strictNullChecks": false,
+    "skipLibCheck": true,                           /* Skip type checking of declaration files. */
+    "useUnknownInCatchVariables": false       /* Disallow inconsistently-cased references to the same file. */
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
