@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/ArthurPdaSilva/backend-node/compare/v1.2.0...v1.3.0) (2023-02-25)
+
+
+### Features
+
+* **add server:** adding server in aplication ([92438ca](https://github.com/ArthurPdaSilva/backend-node/commit/92438cafd8b0f24f748afcfdfdba0d82b0b8e2a1))
+
 ## 1.2.0 (2023-02-25)
 
 ### Features
