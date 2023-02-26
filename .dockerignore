@@ -1,0 +1,5 @@
+mongodb-data
+node_modules
+Dockerfile
+jest.config.js
+.eslintrc

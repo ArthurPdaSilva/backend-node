@@ -2,6 +2,7 @@ import express, { Express, json } from "express";
 import cors from "cors";
 import UserRoutes from "../routes/UserRoutes";
 import AboutMeRoutes from "../routes/AboutMeRoutes";
+import { Request, Response } from "express";
 
 export default class App {
     private app: Express;
@@ -28,10 +29,12 @@ export default class App {
 
     public configDocumentation(): void {
         this.app.use(express.static("documentation"));
+        this.app.use("/", (request: Request, response:Response)=>{
+            response.render("index.html");
+        });
     }
 
     public getApp(): Express {
         return this.app;
     }
-
 }

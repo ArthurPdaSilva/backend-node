@@ -12,6 +12,7 @@ export default class UserController {
 
     public async read(request: Request, response: Response): Promise<Response> {
         try {
+            
             const users: User[] = await service.read();
             const result = UserDTO.converter(users);
             logger.info("/user. Get method response successfully", result ? result[0] : result);
@@ -30,7 +31,7 @@ export default class UserController {
             ParamtersValidationComponent.allParamtersRequired(user, desirableParameters);
 
             const createdUser:User = await service.create(user);
-            
+
             const result = new UserDTO(createdUser);
             logger.info("/user. post method response successfully", result);
             return response.status(201).json(result);
@@ -46,6 +47,7 @@ export default class UserController {
             const desirableParameters = ["uuid","newName"];
             const { uuid } = request.params;
             const { newName } = request.body;
+
             ParamtersValidationComponent.allParamtersRequired({"uuid":uuid, "newName": newName}, desirableParameters);
 
             const result:User = await service.updateName(uuid, newName);
@@ -92,14 +94,14 @@ export default class UserController {
 
            const result = await service.deleteRule(uuid, rule);
            if(result){
-            logger.info("/user. DeleteRule method response successfully", rule);
-            return response.status(200).json("Rule removed successfully " + rule);
+            logger.info("/user. AddRule method response successfully", rule);
+            return response.status(200).json("Rule removed  successfully " + rule);
            }
 
-           logger.warn("/user. DeleteRule method response successfully", rule);
+           logger.warn("/user. AddRule method response successfully", rule);
            return response.status(400).json("Rule removed unsuccessfully " + rule);
         } catch (error) {
-            logger.warn("/user. DeleteRule method response successfully", error);
+            logger.warn("/user. AddRule method response successfully", error);
             return response.status(400).json("Rule removed unsuccessfully " + error);
         }
     }
@@ -123,6 +125,7 @@ export default class UserController {
     public async login(request: Request, response:Response):Promise<Response> {
 
         try {
+            
             const desirableParameters = ["email", "password"];
             ParamtersValidationComponent.allParamtersRequired(request.body, desirableParameters);
 

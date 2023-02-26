@@ -9,6 +9,7 @@ export default class UserRoutes extends RoutesTemplate {
         const controller = new UserController();
         const permitUser = new AuthorizationTokenMiddleware();
 
+
         this.routes.get("/",permitUser.permitUserRule(["ADM"]), controller.read);
         this.routes.post("/", controller.create);
         this.routes.delete("/:uuid",permitUser.permitUserRule(["ADM", "DELETE"]),controller.delete);

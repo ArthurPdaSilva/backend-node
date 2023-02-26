@@ -4,7 +4,7 @@ import UserService from "../src/entities/User/UserService";
 import AboutMe from "../src/types/AboutMe";
 import User from "../src/types/User";
 
-describe("should be test the about me service methods", () => {
+describe("should be test the about me service methods", ()=>{
 
     const user: User = {
         email:"victor.queiroz@academico.ifpb.edu.br2",
@@ -23,7 +23,6 @@ describe("should be test the about me service methods", () => {
         user._id = result._id;
     });
 
-    // Depois de todos os testes
     afterAll(async () =>{
         const userService = new UserService();
         await userService.delete(user._id);
@@ -59,28 +58,28 @@ describe("should be test the about me service methods", () => {
     test("should be add a new project", async () => {
 
         const result = await aboutMeService.addProject(aboutMe._id, "project 3");
-        expect(result).toBe("Successfully");
+        expect(result).toBe(true);
     });
 
     test("should be remove a project 3 ", async () => {
 
         const result = await aboutMeService.removeProject(aboutMe._id, "project 3");
-        expect(result).toBe("Successfully");
+        expect(result).toBe(true);
     });
 
     test("should be add a new curiosity", async () => {
 
         const result = await aboutMeService.addCuriosities(aboutMe._id, "curiosity 3");
-        expect(result).toBe("Successfully");
+        expect(result).toBe(true);
     });
 
     test("should be remove a curiosity 3 ", async () => {
 
         const result = await aboutMeService.removeCuriosities(aboutMe._id, "curiosity 3");
-        expect(result).toBe("Successfully");
+        expect(result).toBe(true);
     });
 
-    test("should be remove a about me ", async () => {
+    test("should be delete a about me", async () => {
 
         const result = await aboutMeService.delete(aboutMe._id);
         expect(result).not.toBe(undefined);

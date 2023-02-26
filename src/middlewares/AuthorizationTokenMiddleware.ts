@@ -5,7 +5,6 @@ import UserService from "../entities/User/UserService";
 import User from "../types/User";
 
 const userService = new UserService();
-
 export default class AuthorizationTokenMiddleware {
 
     private logger: LoggerComponent;
@@ -21,7 +20,7 @@ export default class AuthorizationTokenMiddleware {
             rulesAllowed.push("READ");
             rulesAllowed.push("CREATE");
         }
-        const isAllowed = ( rulesUser: string[] ): boolean  => {
+        const isAllowed = ( rulesUser: string[] ): boolean  =>{
 
             for (let i = 0; i < rulesAllowed.length; i++) {
                 const rule = rulesAllowed[i];

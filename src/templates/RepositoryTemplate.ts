@@ -14,8 +14,9 @@ export default abstract class RepositoryTemplate {
             if(!entity) {
                 return undefined;
             }
+
+
             entity._id = v4();
-            
             const newEntity = new this.mongoModel(entity);
             await newEntity.save();
 

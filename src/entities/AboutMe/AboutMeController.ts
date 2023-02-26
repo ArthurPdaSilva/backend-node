@@ -116,13 +116,13 @@ export default class AboutMeController{
             const result = await service.update(academicDescription, description, uuid);
 
             if(result !== undefined){
-                logger.info("/about-me. Update method response sucessfuly", { result });
+                logger.info("/about-me. addCuriosities method response sucessfuly", { result });
                 return response.status(200).json(new AboutMeDTO(result));
             }
-            logger.warn("/about-me. Update method response unsucessfuly", { result });
-            return response.status(400).json("/about-me. Update method response unsucessfuly");
+            logger.warn("/about-me. addCuriosities method response unsucessfuly", { result });
+            return response.status(400).json("/about-me. addCuriosities method response unsucessfuly");
         } catch (error) {
-            logger.error("/about-me. Update method response unsucessfuly", error.message);
+            logger.error("/about-me. update method response unsucessfuly", error.message);
             return response.status(400).json(error.message);
         }
     }   

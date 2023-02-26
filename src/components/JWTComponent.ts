@@ -11,7 +11,7 @@ export default class JWtComponent {
             name: user.name
         };
 
-        return sign(data, DotenvComponent.API_JWT_KEY, {expiresIn: "3h"});
+        return sign(data, DotenvComponent.API_JWT_KEY,{expiresIn: "2h"});
     }
 
     public static async decodeToken(token: string): Promise<any> {
