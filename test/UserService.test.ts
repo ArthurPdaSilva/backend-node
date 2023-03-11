@@ -5,8 +5,8 @@ import User from "../src/types/User";
 describe("should be test the user service methods", ()=>{
 
     const user: User = {
-        email:"victor.queiroz@academico.ifpb.edu.br",
-        name: "João Victor Lacerda de Queiroz",
+        email:"arthur@gmail.com",
+        name: "Arthur",
         password: "123456"
     };
     const userService = new UserService();
@@ -54,7 +54,7 @@ describe("should be test the user service methods", ()=>{
         expect(result.name).toBe("novo nome");
     });
 
-    test("should be delete name", async () =>{
+    test("should be delete user", async () =>{
         const result = await userService.delete(user._id);
         expect(result).not.toBe(undefined);
     });
